@@ -13,17 +13,17 @@ const Footer = () => {
         <div className="lg:flex md:flex items-center justify-between">
           {/* logo  */}
           <div>
-            <p className="font-Jost lg:text-4xl md:text-2xl text-xl font-bold">
+            <p className="font-Jost lg:text-4xl md:text-3xl text-2xl font-bold">
               <span className="text-red">W</span>ork{" "}
               <span className="text-red">T</span>oday
             </p>
           </div>
           {/* Subscribe  */}
           <div>
-            <h1 className="lg:text-3xl text-xl font-semibold pb-5">
+            <h1 className="lg:text-4xl md:text-3xl text-xl font-semibold pb-5">
               Subscribe Now
             </h1>
-            <div className="flex justify-center ">
+            <div className="flex justify-center">
               <div className="join">
                 <input
                   className="px-2 border input-bordered join-item"

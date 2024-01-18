@@ -14,7 +14,7 @@ const Banner = () => {
           <h1 className="text-xl bg-red rounded py-1 inline px-5">
             Welcome To Work Today
           </h1>
-          <h4 className="font-Jost lg:text-6xl md:text-3xl text-xl font-bold my-5">
+          <h4 className="font-Jost lg:text-6xl md:text-3xl text-2xl font-bold my-5">
             Empowering leaders <br /> to live life on{" "}
             <span className="text-red">Purpose</span>
           </h4>
