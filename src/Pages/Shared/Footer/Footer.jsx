@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="px-2">
-      <div className="max-w-screen-xl mx-auto py-20">
-        <div className="lg:flex md:flex items-center justify-between">
+      <div className="max-w-screen-xl mx-auto pt-20">
+        <div className="lg:flex md:flex items-center justify-between lg:text-left text-center">
           {/* logo  */}
           <div>
             <p className="font-Jost lg:text-4xl md:text-3xl text-2xl font-bold">
@@ -27,7 +27,7 @@ const Footer = () => {
               <div className="join">
                 <input
                   className="px-2 border input-bordered join-item"
-                  placeholder="Email"
+                  placeholder="Enter email address"
                 />
                 <p className="py-2 px-2 join-item rounded-full bg-red text-white">
                   Subscribe
