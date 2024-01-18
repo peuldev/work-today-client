@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <div className="px-2">
       <div className="max-w-screen-xl mx-auto py-20">
-        <div className="gird lg:grid-cols-2  items-center justify-between">
+        <div className="lg:flex md:flex items-center justify-between">
           {/* logo  */}
           <div>
             <p className="font-Jost lg:text-4xl md:text-2xl text-xl font-bold">
@@ -23,6 +23,17 @@ const Footer = () => {
             <h1 className="lg:text-3xl text-xl font-semibold pb-5">
               Subscribe Now
             </h1>
+            <div className="flex justify-center ">
+              <div className="join">
+                <input
+                  className="px-2 border input-bordered join-item"
+                  placeholder="Email"
+                />
+                <p className="py-2 px-2 join-item rounded-full bg-red text-white">
+                  Subscribe
+                </p>
+              </div>
+            </div>
           </div>
         </div>
         <hr className="my-12 text-grey" />
@@ -48,7 +59,7 @@ const Footer = () => {
           </div>
 
           {/* Privacy */}
-          <div className="ms-2">
+          <div className="md:ms-s">
             <ul className="lg:flex md:flex lg:gap-5 md:gap-2">
               <li>
                 <a href="">Privacy & Policy</a>
