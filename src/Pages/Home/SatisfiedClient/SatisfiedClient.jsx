@@ -1,4 +1,4 @@
-const Services = () => {
+const SatisfiedClient = () => {
   return (
     <div className="mx-2">
       <div className="max-w-screen-xl mx-auto mt-20">
@@ -37,4 +37,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default SatisfiedClient;
