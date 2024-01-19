@@ -5,11 +5,19 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import footerBg from "../../../assets/footer/footer-bg-shape.svg";
 
 const Footer = () => {
   return (
-    <div className="px-2">
-      <div className="max-w-screen-xl mx-auto pt-20">
+    <div
+      className="px-2"
+      style={{
+        backgroundImage: `url(${footerBg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="max-w-screen-xl mx-auto pt-20 text-white cursor-default">
         <div className="lg:flex md:flex items-center justify-between lg:text-left text-center">
           {/* logo  */}
           <div>
@@ -26,10 +34,10 @@ const Footer = () => {
             <div className="flex justify-center">
               <div className="join">
                 <input
-                  className="px-2 border input-bordered join-item"
+                  className="px-2 border input-bordered join-item text-black"
                   placeholder="Enter email address"
                 />
-                <p className="py-2 px-2 join-item rounded-full bg-red text-white">
+                <p className="py-2 px-2 join-item rounded-full bg-red text-white hover:bg-grey cursor-pointer  hover:text-red">
                   Subscribe
                 </p>
               </div>
@@ -48,7 +56,7 @@ const Footer = () => {
             All Rights Reserved.
           </p>
           {/* icon  */}
-          <div className="lg:flex md:flex lg:gap-5  gap-2 items-center text-4xl my-5">
+          <div className="lg:flex md:flex lg:gap-5  gap-2 items-center text-4xl my-5 cursor-pointer ">
             <FaFacebookSquare className="my-2 text-white p-2 rounded-full hover:bg-white hover:text-red bg-red" />
 
             <FaTwitter className="my-2 text-white p-2 rounded-full hover:bg-white hover:text-red bg-red" />
