@@ -8,11 +8,13 @@ import OurTitle from "../../../components/OurTitle";
 const Services = () => {
   return (
     <div className="mx-2 bg-[#f7f7f7]">
-      <div className="max-w-screen-xl mx-auto my-24 py-20">
-        <OurTitle
-          heading={"High Quality Services"}
-          subHeading={"OUR SERVICES"}
-        ></OurTitle>
+      <div className="max-w-screen-xl mx-auto py-20">
+        <div className="pt-20">
+          <OurTitle
+            heading={"High Quality Services"}
+            subHeading={"OUR SERVICES"}
+          ></OurTitle>
+        </div>
         {/* Services info  */}
         <div className="pt-20 grid lg:grid-cols-4 md:grid-cols-2 gap-5">
           <div className=" bg-white p-4 border border-grey rounded">

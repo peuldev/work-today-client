@@ -20,7 +20,7 @@ const Testimonials = () => {
   }, []);
   return (
     <div className="mx-2">
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl mx-auto py-20">
         <OurTitle
           subHeading={"Testimonials"}
           heading={"Client Feedbacks"}

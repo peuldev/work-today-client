@@ -11,7 +11,7 @@ const Blog = () => {
   }, []);
   return (
     <div className="bg-[#1D2027] px-2">
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl mx-auto pt-20">
         {/* blog  */}
         <div className="py-20">
           <OurTitle subHeading={"BLOG POSTS"}></OurTitle>
