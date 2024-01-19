@@ -1,5 +1,6 @@
 import { MdOutlineMailOutline, MdOutlineLocationOn } from "react-icons/md";
 import { IoMdCalendar } from "react-icons/io";
+import OurTitle from "../../../components/OurTitle";
 
 const ContactInfo = () => {
   return (
@@ -30,6 +31,52 @@ const ContactInfo = () => {
           </div>
         </div>
       </div>
+
+      {/* from info  */}
+      <div className="mt-20">
+        <OurTitle
+          subHeading={"GET IN TOUCH"}
+          heading={"Needs Help? Let’s Get in Touch"}
+        ></OurTitle>
+      </div>
+      {/* from  */}
+      <form className="card-body">
+        <div className="grid lg:grid-cols-2 gap-5">
+          <div className="form-control">
+            <input
+              type="text"
+              placeholder="Your Email"
+              className="input bg-from focus:bg-white"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <input
+              type="email"
+              placeholder="Email Address"
+              className="input bg-from focus:bg-white"
+              required
+            />
+          </div>
+        </div>
+        <div className="form-control my-5">
+          <input
+            type="email"
+            placeholder="Your Subject"
+            className="input bg-from focus:bg-white"
+            required
+          />
+        </div>
+        <div>
+          <textarea
+            placeholder="Type Your Message"
+            className="textarea bg-from focus:bg-white w-full h-40"
+          ></textarea>
+        </div>
+        <div className="justify-center flex mt-6">
+          <btn className="btn bg-red text-white">Submit Message</btn>
+        </div>
+      </form>
     </div>
   );
 };

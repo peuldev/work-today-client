@@ -13,6 +13,7 @@ export default {
       grey: "#DFCCFB",
       white: "#ffffff",
       black: "#000000",
+      from: "#F7F7F7",
     },
   },
   plugins: [require("daisyui")],
