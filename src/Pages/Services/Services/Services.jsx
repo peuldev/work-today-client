@@ -3,17 +3,16 @@ import { LiaPeopleCarrySolid } from "react-icons/lia";
 import { RiCustomerService2Line } from "react-icons/ri";
 import { CiEdit } from "react-icons/ci";
 import { LiaHandsSolid } from "react-icons/lia";
+import OurTitle from "../../../components/OurTitle";
 
 const Services = () => {
   return (
     <div className="mx-2 bg-[#f7f7f7]">
       <div className="max-w-screen-xl mx-auto my-24 py-20">
-        <div className="text-center space-y-5">
-          <h3 className="text-red font-medium">OUR SERVICES</h3>
-          <h1 className="lg:text-4xl text-2xl font-semibold text-black">
-            High Quality Services
-          </h1>
-        </div>
+        <OurTitle
+          heading={"High Quality Services"}
+          subHeading={"OUR SERVICES"}
+        ></OurTitle>
         {/* Services info  */}
         <div className="pt-20 grid lg:grid-cols-4 md:grid-cols-2 gap-5">
           <div className=" bg-white p-4 border border-grey rounded">

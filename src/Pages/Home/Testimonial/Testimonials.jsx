@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { FaQuoteLeft } from "react-icons/fa6";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import OurTitle from "../../../components/OurTitle";
 
 const Testimonials = () => {
   const [reviews, SetReviews] = useState([]);
@@ -21,8 +22,10 @@ const Testimonials = () => {
   return (
     <div className="mx-2">
       <div className="max-w-screen-xl mx-auto">
-        <h3>Testimonials</h3>
-        <p>Client Feedbacks</p>
+        <OurTitle
+          subHeading={"Testimonials"}
+          heading={"Client Feedbacks"}
+        ></OurTitle>
         <div>
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
             {reviews.map((review) => (
