@@ -45,7 +45,7 @@ const ContactInfo = () => {
           <div className="form-control">
             <input
               type="text"
-              placeholder="Your Email"
+              placeholder="Your Name"
               className="input bg-from focus:bg-white"
               required
             />
