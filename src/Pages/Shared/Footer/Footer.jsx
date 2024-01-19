@@ -56,7 +56,7 @@ const Footer = () => {
             All Rights Reserved.
           </p>
           {/* icon  */}
-          <div className="lg:flex md:flex lg:gap-5  gap-2 items-center text-4xl my-5 cursor-pointer ">
+          <div className="lg:flex md:flex lg:gap-5  gap-2 items-center text-4xl my-5">
             <FaFacebookSquare className="my-2 text-white p-2 rounded-full hover:bg-white hover:text-red bg-red" />
 
             <FaTwitter className="my-2 text-white p-2 rounded-full hover:bg-white hover:text-red bg-red" />
