@@ -23,6 +23,11 @@ const Navbar = () => {
           <a>Contact Us</a>
         </Link>
       </li>
+      <li>
+        <Link to="/dashboard">
+          <a>Dashboard</a>
+        </Link>
+      </li>
       <li className="bg-red text-white hover:bg-black">
         <a>Sign Out</a>
       </li>

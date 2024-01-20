@@ -1,7 +1,7 @@
 const SatisfiedClient = () => {
   return (
     <div className="mx-2">
-      <div className="max-w-screen-xl mx-auto mt-20">
+      <div className="max-w-screen-xl mx-auto my-20">
         <div className="lg:flex items-center justify-between">
           <div className="space-y-5 lg:text-left text-center">
             <h1 className="text-red">WHO WE ARE</h1>
