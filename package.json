@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@smastrom/react-rating": "^1.4.0",
+    "dotenv": "^16.3.2",
     "firebase": "^10.7.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",
