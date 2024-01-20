@@ -9,15 +9,22 @@ const Login = () => {
           <div className="hero-content flex-col lg:flex-row">
             <div className="card lg:w-1/2">
               <form className="card-body">
-                <h1 className="text-3xl font-bold">Login</h1>
-                <p>Login to your account.</p>
+                <div className="flex items-center">
+                  <h1 className="text-3xl font-bold">Login </h1>
+                  <Link to="/">
+                    <p className="font-Jost lg:text-4xl md:text-2xl text-xl font-bold ms-2">
+                      <span className="text-red">W</span>ork{" "}
+                      <span className="text-red">T</span>oday
+                    </p>
+                  </Link>
+                </div>
+                <p className="text-[#969696] py-3">Login to your account.</p>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">E-mail Address</span>
                   </label>
                   <input
                     type="email"
-                    placeholder="Type email"
                     className="input input-bordered"
                     required
                     name="email"
@@ -29,7 +36,6 @@ const Login = () => {
                   </label>
                   <input
                     type="password"
-                    placeholder="Enter your password"
                     className="input input-bordered"
                     required
                     name="password"
@@ -46,7 +52,7 @@ const Login = () => {
                   <p>
                     <small>
                       Don’t have an account yet ?{" "}
-                      <Link className="underline text-red" to="/signup">
+                      <Link className="underline text-red" to="/register">
                         Join Now
                       </Link>{" "}
                     </small>
