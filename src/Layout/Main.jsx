@@ -4,12 +4,14 @@ import Footer from "../Pages/Shared/Footer/Footer";
 
 const Main = () => {
   const location = useLocation();
-  const hideHeaderFooter = location.pathname.includes("login");
+  const hideHeaderFooter =
+    location.pathname.includes("login") ||
+    location.pathname.includes("register");
   return (
     <div className="font-Poppins">
-      {<Navbar></Navbar>}
+      {hideHeaderFooter || <Navbar></Navbar>}
       <Outlet></Outlet>
-      {<Footer></Footer>}
+      {hideHeaderFooter || <Footer></Footer>}
     </div>
   );
 };
