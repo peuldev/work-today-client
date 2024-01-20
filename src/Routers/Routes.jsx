@@ -5,6 +5,7 @@ import Services from "../Pages/Services/Services/Services";
 import Blog from "../Pages/Blog/Blog/Blog";
 import Contact from "../Pages/Contact/Contact/Contact";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
+import Login from "../Pages/Login/login";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },

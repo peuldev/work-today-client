@@ -29,7 +29,9 @@ const Navbar = () => {
         </Link>
       </li>
       <li className="bg-red text-white hover:bg-black">
-        <a>Sign Out</a>
+        <Link to="/login">
+          <a>Login</a>
+        </Link>
       </li>
     </>
   );
