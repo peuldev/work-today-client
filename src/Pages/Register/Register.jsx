@@ -5,7 +5,7 @@ import { AuthContext } from "../../Context/AuthProviders";
 import { IoClose } from "react-icons/io5";
 import Swal from "sweetalert2";
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const [registerError, setRegisterError] = useState("");
   const navigate = useNavigate();
   const handleRegister = (e) => {
@@ -14,6 +14,7 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const phone = form.number.value;
+    const photoURL = form.photoURL.value;
     const password = form.password.value;
     const registerInfo = {
       name,
@@ -45,13 +46,16 @@ const Register = () => {
     // create user
     createUser(email, password)
       .then((result) => {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Work Today",
-          text: "Account Created Successfully",
-          showConfirmButton: false,
-          timer: 1500,
+        updateUserProfile(name, photoURL).then(() => {
+          console.log("user profile info update");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Work Today",
+            text: "Account Created Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         });
         e.target.reset();
         navigate("/");
@@ -121,6 +125,18 @@ const Register = () => {
                     placeholder="Type numbber"
                     required
                     name="number"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Photo Url</span>
+                  </label>
+                  <input
+                    type="text"
+                    className="input input-bordered"
+                    placeholder="Photo Url"
+                    required
+                    name="photoURL"
                   />
                 </div>
 
