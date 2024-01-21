@@ -11,20 +11,17 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
-    const fristName = form.frist_name.value;
-    const lastName = form.last_name.value;
+    const name = form.name.value;
     const email = form.email.value;
-    const number = form.number.value;
-    const age = form.age.value;
+    const phone = form.number.value;
     const password = form.password.value;
     const registerInfo = {
-      fristName,
-      lastName,
+      name,
       email,
-      number,
-      age,
+      phone,
       password,
     };
+    console.log(registerInfo);
     // password check
     if (password.length < 6) {
       setRegisterError("password less than 6 characters");
@@ -32,16 +29,11 @@ const Register = () => {
     }
 
     // number check
-    if (number.length < 11) {
+    if (phone.length < 11) {
       setRegisterError("Number less than 11 characters");
       return;
     }
 
-    // age check
-    if (age.length < 1) {
-      setRegisterError("Age less than 1 characters");
-      return;
-    }
     // letter cheak
     else if (!/[A-Z]/.test(password)) {
       setRegisterError("don't have a capital letter");
@@ -94,73 +86,55 @@ const Register = () => {
                   </p>
                 )}
                 <p className="text-[#969696] py-3">Login to your account.</p>
-                <div className="grid lg:grid-cols-2 gap-5">
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">First Name</span>
-                    </label>
-                    <input
-                      type="text"
-                      className="input input-bordered"
-                      required
-                      name="frist_name"
-                    />
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Last Name</span>
-                    </label>
-                    <input
-                      type="text"
-                      className="input input-bordered"
-                      required
-                      name="last_name"
-                    />
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">E-mail Address</span>
-                    </label>
-                    <input
-                      type="email"
-                      className="input input-bordered"
-                      required
-                      name="email"
-                    />
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Phone Number</span>
-                    </label>
-                    <input
-                      type="number"
-                      className="input input-bordered"
-                      required
-                      name="number"
-                    />
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Age</span>
-                    </label>
-                    <input
-                      type="number"
-                      className="input input-bordered"
-                      required
-                      name="age"
-                    />
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Password</span>
-                    </label>
-                    <input
-                      type="password"
-                      className="input input-bordered"
-                      required
-                      name="password"
-                    />
-                  </div>
+
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Name</span>
+                  </label>
+                  <input
+                    type="text"
+                    className="input input-bordered"
+                    placeholder="Type name"
+                    required
+                    name="name"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">E-mail Address</span>
+                  </label>
+                  <input
+                    type="email"
+                    className="input input-bordered"
+                    placeholder="Type email"
+                    required
+                    name="email"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Phone Number</span>
+                  </label>
+                  <input
+                    type="number"
+                    className="input input-bordered"
+                    placeholder="Type numbber"
+                    required
+                    name="number"
+                  />
+                </div>
+
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Password</span>
+                  </label>
+                  <input
+                    type="password"
+                    className="input input-bordered"
+                    placeholder="Type password"
+                    required
+                    name="password"
+                  />
                 </div>
                 <div className="form-control mt-6">
                   <input

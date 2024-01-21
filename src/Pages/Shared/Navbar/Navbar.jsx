@@ -1,12 +1,14 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProviders";
 import { CgLogOut } from "react-icons/cg";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSignOut = () => {
     logOut();
+    navigate("/login");
   };
   const navLink = (
     <>
@@ -90,7 +92,7 @@ const Navbar = () => {
                 onClick={handleSignOut}
                 className="bg-red text-white hover:bg-black py-1 px-2 text-xl cursor-pointer flex items-center"
               >
-                Logout <CgLogOut className="ms-2 text-2xl"/>
+                Logout <CgLogOut className="ms-2 text-2xl" />
               </p>
             ) : (
               <Link to="/login">
