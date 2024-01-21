@@ -31,7 +31,7 @@ const Login = () => {
         navigate("/");
       })
       .catch((error) => {
-        setloginError(error.message);
+        setloginError("This user invalid");
       });
   };
   const handeGoogleLogin = () => {
