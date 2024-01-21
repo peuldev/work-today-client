@@ -6,7 +6,11 @@ import { AuthContext } from "../Context/AuthProviders";
 const PrivateRoute = ({ children }) => {
   const { user, loding } = useContext(AuthContext);
   if (loding) {
-    return <span className="loading loading-spinner text-red"></span>;
+    return (
+      <div className="flex justify-center py-20">
+        <span className="loading loading-spinner text-red"></span>
+      </div>
+    );
   }
   if (user) {
     return children;
