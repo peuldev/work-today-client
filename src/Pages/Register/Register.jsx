@@ -1,11 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import registerBg from "../../assets/images/register.jpg";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../Context/AuthProviders";
 import { IoClose } from "react-icons/io5";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useAuth();
   const [registerError, setRegisterError] = useState("");
   const navigate = useNavigate();
   const handleRegister = (e) => {

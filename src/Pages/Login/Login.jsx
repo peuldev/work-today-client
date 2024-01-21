@@ -1,12 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import loginBg from "../../assets/images/login.jpg";
 import { IoClose } from "react-icons/io5";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../Context/AuthProviders";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
-  const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const { signIn, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
   const [loginError, setloginError] = useState("");
   const handleLogin = (e) => {
