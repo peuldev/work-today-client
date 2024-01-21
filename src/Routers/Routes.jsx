@@ -5,13 +5,15 @@ import Services from "../Pages/Services/Services/Services";
 import Blog from "../Pages/Blog/Blog/Blog";
 import Contact from "../Pages/Contact/Contact/Contact";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
-import Login from "../Pages/Login/login";
 import Register from "../Pages/Register/Register";
+import Login from "../Pages/Login/Login";
+import ErrorPage from "../Error/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
