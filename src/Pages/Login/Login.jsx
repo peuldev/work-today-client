@@ -1,14 +1,53 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginBg from "../../assets/images/login.jpg";
+import { IoClose } from "react-icons/io5";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Context/AuthProviders";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [loginError, setloginError] = useState("");
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const loginInfo = { email, password };
+    console.log(loginInfo);
+    setloginError("");
+    signIn(email, password)
+      .then((result) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Work Today",
+          text: "Login Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        e.target.reset();
+        navigate("/");
+      })
+      .catch((error) => {
+        setloginError(error.message);
+      });
+  };
+  const handeGoogleLogin = () => {
+    signInWithGoogle()
+      .then((result) => {
+        navigate("/");
+      })
+      .then((error) => {});
+  };
   return (
     <div className="px-2">
       <div className="max-w-screen-xl mx-auto py-20">
         <div className="hero min-h-screen">
           <div className="hero-content flex-col lg:flex-row">
             <div className="card lg:w-1/2">
-              <form className="card-body">
+              <form className="card-body" onSubmit={handleLogin}>
                 <div className="flex items-center">
                   <h1 className="text-3xl font-bold">Login </h1>
                   <Link to="/">
@@ -18,6 +57,12 @@ const Login = () => {
                     </p>
                   </Link>
                 </div>
+                {loginError && (
+                  <p className="text-red flex items-center">
+                    <IoClose className="bg-red text-white rounded-full mr-2" />
+                    {loginError}
+                  </p>
+                )}
                 <p className="text-[#969696] py-3">Login to your account.</p>
                 <div className="form-control">
                   <label className="label">
