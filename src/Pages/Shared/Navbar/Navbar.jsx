@@ -87,6 +87,14 @@ const Navbar = () => {
           </div>
           <div className="navbar-end hidden lg:flex">
             <ul className="menu menu-horizontal px-1 text-base">{navLink}</ul>
+
+            {user ? (
+              <p className="py-1 pr-6 text-xl cursor-pointer flex items-center">
+                {user.displayName}
+              </p>
+            ) : (
+              <></>
+            )}
             {user ? (
               <p
                 onClick={handleSignOut}
@@ -95,11 +103,7 @@ const Navbar = () => {
                 Logout <CgLogOut className="ms-2 text-2xl" />
               </p>
             ) : (
-              <Link to="/login">
-                <p className="bg-red text-white hover:bg-black py-1 px-2 text-xl cursor-pointer">
-                  Login
-                </p>
-              </Link>
+              <p></p>
             )}
           </div>
         </div>
