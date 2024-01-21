@@ -1,6 +1,28 @@
 import { Link } from "react-router-dom";
 import registerBg from "../../assets/images/register.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProviders";
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const fristName = form.frist_name.value;
+    const lastName = form.last_name.value;
+    const email = form.email.value;
+    const number = form.number.value;
+    const age = form.age.value;
+    const password = form.password.value;
+    const registerInfo = {
+      fristName,
+      lastName,
+      email,
+      number,
+      age,
+      password,
+    };
+    console.log(registerInfo);
+  };
   return (
     <div className="px-2">
       <div className="max-w-screen-xl mx-auto py-20">
@@ -10,7 +32,7 @@ const Register = () => {
               <img className="rounded" src={registerBg} alt="" />
             </div>
             <div className="card lg:w-1/2">
-              <form className="card-body">
+              <form className="card-body" onSubmit={handleRegister}>
                 <div className="flex items-center">
                   <h1 className="text-3xl font-bold">Welcome to</h1>
                   <Link to="/">
