@@ -24,11 +24,15 @@ const Navbar = () => {
           <a>Blog</a>
         </Link>
       </li>
-      <li>
-        <Link to="/contact">
-          <a>Contact Us</a>
-        </Link>
-      </li>
+      {user ? (
+        <></>
+      ) : (
+        <li>
+          <Link to="/contact">
+            <a>Contact Us</a>
+          </Link>
+        </li>
+      )}
       {user && (
         <li>
           <Link to="/dashboard">
