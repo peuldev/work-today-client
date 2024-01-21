@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import registerBg from "../../assets/images/register.jpg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthProviders";
+import { IoClose } from "react-icons/io5";
+import Swal from "sweetalert2";
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [registerError, setRegisterError] = useState("");
@@ -25,7 +27,15 @@ const Register = () => {
     };
     // password check
     if (password.length < 6) {
-      setRegisterError("less than 6 characters");
+      setRegisterError("password less than 6 characters");
+      return;
+    }
+    if (number.length < 11) {
+      setRegisterError("Number less than 11 characters");
+      return;
+    }
+    if (age.length < 1) {
+      setRegisterError("Age less than 1 characters");
       return;
     }
     // letter cheak
@@ -38,11 +48,18 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Work Today",
+          text: "Account Created Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         e.target.reset();
         navigate("/");
       })
       .catch((error) => {
-        console.error(error);
         setRegisterError(error.message);
       });
   };
@@ -65,7 +82,12 @@ const Register = () => {
                     </p>
                   </Link>
                 </div>
-                {registerError && <p className="text-red">{registerError}</p>}
+                {registerError && (
+                  <p className="text-red flex items-center">
+                    <IoClose className="bg-red text-white rounded-full mr-2" />
+                    {registerError}
+                  </p>
+                )}
                 <p className="text-[#969696] py-3">Login to your account.</p>
                 <div className="grid lg:grid-cols-2 gap-5">
                   <div className="form-control">
