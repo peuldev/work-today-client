@@ -1,9 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import registerBg from "../../assets/images/register.jpg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthProviders";
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [registerError, setRegisterError] = useState("");
   const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
@@ -22,13 +23,27 @@ const Register = () => {
       age,
       password,
     };
-    console.log(registerInfo);
+    // password check
+    if (password.length < 6) {
+      setRegisterError("less than 6 characters");
+      return;
+    }
+    // letter cheak
+    else if (!/[A-Z]/.test(password)) {
+      setRegisterError("don't have a capital letter");
+      return;
+    }
+    // error reset
+    setRegisterError("");
+
     createUser(email, password)
       .then((result) => {
+        e.target.reset();
         navigate("/");
       })
       .catch((error) => {
         console.error(error);
+        setRegisterError(error.message);
       });
   };
   return (
@@ -50,6 +65,7 @@ const Register = () => {
                     </p>
                   </Link>
                 </div>
+                {registerError && <p className="text-red">{registerError}</p>}
                 <p className="text-[#969696] py-3">Login to your account.</p>
                 <div className="grid lg:grid-cols-2 gap-5">
                   <div className="form-control">
