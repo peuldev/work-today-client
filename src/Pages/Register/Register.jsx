@@ -30,10 +30,14 @@ const Register = () => {
       setRegisterError("password less than 6 characters");
       return;
     }
+
+    // number check
     if (number.length < 11) {
       setRegisterError("Number less than 11 characters");
       return;
     }
+
+    // age check
     if (age.length < 1) {
       setRegisterError("Age less than 1 characters");
       return;
@@ -46,6 +50,7 @@ const Register = () => {
     // error reset
     setRegisterError("");
 
+    // create user
     createUser(email, password)
       .then((result) => {
         Swal.fire({
