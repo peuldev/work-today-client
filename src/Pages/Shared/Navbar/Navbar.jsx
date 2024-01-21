@@ -103,7 +103,11 @@ const Navbar = () => {
                 Logout <CgLogOut className="ms-2 text-2xl" />
               </p>
             ) : (
-              <p></p>
+              <Link to="/login">
+                <p className="bg-red text-white hover:bg-black py-1 px-2 text-xl cursor-pointer flex items-center">
+                  login
+                </p>
+              </Link>
             )}
           </div>
         </div>
