@@ -90,7 +90,7 @@ const Navbar = () => {
 
             {user ? (
               <p className="py-1 pr-6 text-xl cursor-pointer flex items-center">
-                <img className="w-10 h-10 rounded-full" src={user.photoURL} alt="" />
+                <p>{user.displayName}</p>
               </p>
             ) : (
               <></>
