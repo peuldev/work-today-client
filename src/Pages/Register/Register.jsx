@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import registerBg from "../../assets/images/register.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProviders";
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,6 +23,13 @@ const Register = () => {
       password,
     };
     console.log(registerInfo);
+    createUser(email, password)
+      .then((result) => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
   return (
     <div className="px-2">
