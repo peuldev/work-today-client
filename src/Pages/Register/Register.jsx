@@ -3,6 +3,7 @@ import registerBg from "../../assets/images/register.jpg";
 import { IoClose } from "react-icons/io5";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
+import { useState } from "react";
 const Register = () => {
   const { createUser, updateUserProfile } = useAuth();
   const [registerError, setRegisterError] = useState("");
@@ -20,6 +21,7 @@ const Register = () => {
       email,
       phone,
       password,
+      photoURL,
     };
     console.log(registerInfo);
     // password check
@@ -128,19 +130,6 @@ const Register = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Photo Url</span>
-                  </label>
-                  <input
-                    type="text"
-                    className="input input-bordered"
-                    placeholder="Photo Url"
-                    required
-                    name="photoURL"
-                  />
-                </div>
-
-                <div className="form-control">
-                  <label className="label">
                     <span className="label-text">Password</span>
                   </label>
                   <input
@@ -149,6 +138,23 @@ const Register = () => {
                     placeholder="Type password"
                     required
                     name="password"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Profile Image</span>
+                  </label>
+                  {/* <input
+                    type="text"
+                    className="input input-bordered"
+                    placeholder="Photo Url"
+                    required
+                    name="photoURL"
+                  /> */}
+                  <input
+                    type="file"
+                    className="file-input file-input-bordered"
+                    name="photoURL"
                   />
                 </div>
                 <div className="form-control mt-6">

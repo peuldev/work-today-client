@@ -3,6 +3,7 @@ import loginBg from "../../assets/images/login.jpg";
 import { IoClose } from "react-icons/io5";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
+import { useState } from "react";
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useAuth();
