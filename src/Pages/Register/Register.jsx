@@ -14,14 +14,12 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const phone = form.number.value;
-    const photoURL = form.photoURL.value;
     const password = form.password.value;
     const registerInfo = {
       name,
       email,
       phone,
       password,
-      photoURL,
     };
     console.log(registerInfo);
     // password check
@@ -47,7 +45,7 @@ const Register = () => {
     // create user
     createUser(email, password)
       .then((result) => {
-        updateUserProfile(name, photoURL).then(() => {
+        updateUserProfile(name).then(() => {
           console.log("user profile info update");
           Swal.fire({
             position: "center",
@@ -140,23 +138,7 @@ const Register = () => {
                     name="password"
                   />
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Profile Image</span>
-                  </label>
-                  {/* <input
-                    type="text"
-                    className="input input-bordered"
-                    placeholder="Photo Url"
-                    required
-                    name="photoURL"
-                  /> */}
-                  <input
-                    type="file"
-                    className="file-input file-input-bordered"
-                    name="photoURL"
-                  />
-                </div>
+
                 <div className="form-control mt-6">
                   <input
                     className="btn text-white bg-red hover:bg-[#D24545]"
