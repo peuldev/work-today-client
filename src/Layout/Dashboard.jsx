@@ -17,6 +17,12 @@ const Dashboard = () => {
           <li>
             <NavLink to="/dashboard/employeehome">Home</NavLink>
           </li>
+          <li>
+            <NavLink to="/dashboard/paymenthistory">Payment History</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/worksheet">Work Sheet</NavLink>
+          </li>
         </ul>
       </div>
 

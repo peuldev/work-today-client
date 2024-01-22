@@ -10,6 +10,8 @@ import ErrorPage from "../Error/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import EmployeeHome from "../EmployeeDashboard/EmployeeHome/EmployeeHome";
+import PaymentHistory from "../EmployeeDashboard/PaymentHistory/PaymentHistory";
+import WorkSheet from "../EmployeeDashboard/WorkSheet/WorkSheet";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +57,14 @@ const router = createBrowserRouter([
       {
         path: "employeehome",
         element: <EmployeeHome></EmployeeHome>,
+      },
+      {
+        path: "/dashboard/paymenthistory",
+        element: <PaymentHistory></PaymentHistory>,
+      },
+      {
+        path: "/dashboard/worksheet",
+        element: <WorkSheet></WorkSheet>,
       },
     ],
   },
