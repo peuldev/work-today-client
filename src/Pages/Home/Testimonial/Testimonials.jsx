@@ -14,7 +14,7 @@ import OurTitle from "../../../components/OurTitle";
 const Testimonials = () => {
   const [reviews, SetReviews] = useState([]);
   useEffect(() => {
-    fetch("https://worktoday.vercel.app/reviews")
+    fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => SetReviews(data));
   }, []);
