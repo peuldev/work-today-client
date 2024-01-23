@@ -1,17 +1,19 @@
 import { useState } from "react";
 import OurTitle from "../../components/OurTitle";
-import DatePicker from "react-datepicker";
+import { DatePicker } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { data } from "autoprefixer";
+import { useForm } from "react-hook-form";
 const WorkSheet = () => {
   const [startDate, setStartDate] = useState(null);
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
   return (
     <div>
       <div>
         <OurTitle subHeading="Statistics" heading="Today Activity"></OurTitle>
       </div>
       <div>
-        <form className="card-body">
+        <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
           <div className="grid lg:grid-cols-2 gap-5">
             <div className="form-control">
               <label className="label">
@@ -22,6 +24,7 @@ const WorkSheet = () => {
                 placeholder="name"
                 className="input input-bordered"
                 required
+                {...register("name")}
               />
             </div>
             <div className="form-control">
@@ -33,6 +36,7 @@ const WorkSheet = () => {
                 placeholder="email"
                 className="input input-bordered"
                 required
+                {...register("email")}
               />
             </div>
           </div>
@@ -41,10 +45,11 @@ const WorkSheet = () => {
               <span className="label-text">Location</span>
             </label>
             <input
-              type="number"
+              type="text"
               placeholder="location"
               className="input input-bordered"
               required
+              {...register("location")}
             />
           </div>
 
@@ -58,21 +63,26 @@ const WorkSheet = () => {
                 placeholder="hours"
                 className="input input-bordered"
                 required
+                {...register("hours")}
               />
             </div>
-            <label className="form-control w-full max-w-xs">
+            <label className="form-control w-full mt-1">
               <div className="label">
-                <span className="label-text">Selected Task</span>
+                <span className="label-text-alt">Task</span>
               </div>
-              <select className="select select-bordered">
-                <option disabled selected>
-                  Pick one
+              <select
+                {...register("task", { required: true })}
+                className="select select-bordered"
+                required
+              >
+                <option disabled value="defaul">
+                  Selected Task
                 </option>
-                <option>Sales</option>
-                <option>Support</option>
-                <option>Content</option>
-                <option>Paper-work</option>
-                <option>Star Trek</option>
+                <option value="sales">Sales</option>
+                <option value="support">Support</option>
+                <option value="content">Content</option>
+                <option value="paperwork">Paper work</option>
+                <option value="startrek">Star Trek</option>
               </select>
             </label>
             <div className="form-control">
