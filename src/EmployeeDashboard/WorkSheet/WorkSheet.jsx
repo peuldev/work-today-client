@@ -1,6 +1,10 @@
+import { useState } from "react";
 import OurTitle from "../../components/OurTitle";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { data } from "autoprefixer";
 const WorkSheet = () => {
+  const [startDate, setStartDate] = useState(null);
   return (
     <div>
       <div>
@@ -75,12 +79,18 @@ const WorkSheet = () => {
               <label className="label">
                 <span className="label-text">Date</span>
               </label>
-              <input
-                type="date"
-                placeholder="email"
-                className="input input-bordered"
-                required
-              />
+              <DatePicker
+                selected={startDate}
+                onChange={(data) => setStartDate(data)}
+                dateFormat="dd/MM/yyy"
+                maxDate={new Date()}
+                isClearable
+                placeholderText="dd/mm/yyy"
+                showYearDropdown
+                scrollableMonthYearDropdown
+                toggleCalendarOnIconClick
+                className="input input-bordered w-full "
+              ></DatePicker>
             </div>
           </div>
           <div className="form-control mt-6">
