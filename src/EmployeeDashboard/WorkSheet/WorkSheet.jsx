@@ -1,8 +1,28 @@
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import OurTitle from "../../components/OurTitle";
 import { useForm } from "react-hook-form";
 const WorkSheet = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit, reset } = useForm();
+  const axiosSecure = useAxiosSecure();
+  const onSubmit = (data) => {
+    axiosSecure
+      .post("/work-sheet", data)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Work Today",
+            text: "Work Time Add Successful",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          reset();
+        }
+      })
+      .catch((result) => {});
+  };
   return (
     <div>
       <div>
