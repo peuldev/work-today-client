@@ -9,7 +9,6 @@ const WorkSheet = () => {
     axiosSecure
       .post("/work-sheet", data)
       .then((res) => {
-        console.log(res.data);
         if (res.data.insertedId) {
           Swal.fire({
             icon: "success",
