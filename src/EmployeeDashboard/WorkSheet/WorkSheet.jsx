@@ -1,10 +1,6 @@
-import { useState } from "react";
 import OurTitle from "../../components/OurTitle";
-import { DatePicker } from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
 const WorkSheet = () => {
-  const [startDate, setStartDate] = useState(null);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
@@ -89,18 +85,14 @@ const WorkSheet = () => {
               <label className="label">
                 <span className="label-text">Date</span>
               </label>
-              <DatePicker
-                selected={startDate}
-                onChange={(data) => setStartDate(data)}
-                dateFormat="dd/MM/yyy"
-                maxDate={new Date()}
-                isClearable
-                placeholderText="dd/mm/yyy"
-                showYearDropdown
-                scrollableMonthYearDropdown
-                toggleCalendarOnIconClick
-                className="input input-bordered w-full "
-              ></DatePicker>
+              {/* TODU: use react date pikcer */}
+              <input
+                type="date"
+                name=""
+                id=""
+                className="input input-bordered"
+                {...register("date")}
+              />
             </div>
           </div>
           <div className="form-control mt-6">
