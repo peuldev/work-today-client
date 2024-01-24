@@ -36,25 +36,27 @@ const Register = () => {
         image: res.data.data.display_url,
       };
       const user = await axiosSecure.post("/user", loginInfo);
-    }
-    createUser(data.email, data.password)
-      .then((result) => {
-        updateUserProfile(data.name, data.photoURL).then(() => {
-          console.log("user profile info update");
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Work Today",
-            text: "Account Created Successfully",
-            showConfirmButton: false,
-            timer: 1500,
+      if (user.data.insertedId) {
+        createUser(data.email, data.password)
+          .then((result) => {
+            updateUserProfile(data.name, data.photoURL).then(() => {
+              console.log("user profile info update");
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Work Today",
+                text: "Account Created Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            });
+            navigate("/");
+          })
+          .catch((error) => {
+            setRegisterError(error.message);
           });
-        });
-        navigate("/");
-      })
-      .catch((error) => {
-        setRegisterError(error.message);
-      });
+      }
+    }
   };
   return (
     <div className="max-w-screen-xl mx-auto py-20">
