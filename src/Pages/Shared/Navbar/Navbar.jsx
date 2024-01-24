@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CgLogOut } from "react-icons/cg";
 import useAuth from "../../../Hooks/useAuth";
+import logo from "../../../assets/title/images (4).jpg";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -89,9 +90,18 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1 text-base">{navLink}</ul>
 
             {user ? (
-              <p className="py-1 pr-6 text-xl cursor-pointer flex items-center">
+              <p className="py-1 pr-3 text-xl cursor-pointer flex items-center">
                 <p>{user.displayName}</p>
               </p>
+            ) : (
+              <></>
+            )}
+            {user ? (
+              <img
+                className="w-10 h-10 mr-3 rounded-full"
+                src={user.photoURL}
+                alt=""
+              />
             ) : (
               <></>
             )}
