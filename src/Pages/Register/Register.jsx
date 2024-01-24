@@ -15,16 +15,13 @@ const Register = () => {
   const onSubmit = (data) => {
     createUser(data.email, data.password)
       .then((result) => {
-        updateUserProfile(data.name, data.photoURL).then(() => {
-          console.log("user profile info update");
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Work Today",
-            text: "Account Created Successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Work Today",
+          text: "Account Created Successfully",
+          showConfirmButton: false,
+          timer: 1500,
         });
         navigate("/");
       })
@@ -154,7 +151,7 @@ const Register = () => {
           </label>
           <input
             type="file"
-            {...register("photoURL", { required: true })}
+            {...register("photo", { required: true })}
             className="file-input file-input-bordered"
           />
           {errors.photoURL && (
