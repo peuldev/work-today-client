@@ -39,7 +39,7 @@ const Register = () => {
       if (user.data.insertedId) {
         createUser(data.email, data.password)
           .then((result) => {
-            updateUserProfile(data.name, data.photoURL).then(() => {
+            updateUserProfile(data.name, loginInfo.image).then(() => {
               console.log("user profile info update");
               Swal.fire({
                 position: "center",
