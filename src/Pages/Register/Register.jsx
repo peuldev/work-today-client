@@ -5,9 +5,9 @@ const Register = () => {
   return (
     <div className="max-w-screen-xl mx-auto py-20">
       <div className="flex items-center justify-center">
-        <h1 className="text-3xl font-bold">Register</h1>
+        <h1 className="lg:text-4xl text-3xl font-bold font-Jost">Register</h1>
         <Link to="/">
-          <p className="font-Jost lg:text-4xl md:text-2xl text-xl font-bold ms-2">
+          <p className="font-Jost lg:text-4xl text-3xl font-bold ms-2">
             <span className="text-red">W</span>ork{" "}
             <span className="text-red">T</span>oday
           </p>
@@ -19,20 +19,35 @@ const Register = () => {
             <label className="label">
               <span className="label-text">Name</span>
             </label>
-            <input type="name" className="input input-bordered" required />
+            <input
+              type="name"
+              placeholder="Type name"
+              className="input input-bordered"
+              required
+            />
           </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
             </label>
-            <input type="email" className="input input-bordered" required />
+            <input
+              type="email"
+              placeholder="Type email"
+              className="input input-bordered"
+              required
+            />
           </div>
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Bank Account</span>
+            <span className="label-text ">Bank Account</span>
           </label>
-          <input type="number" className="input input-bordered" required />
+          <input
+            type="number"
+            placeholder="Type bank account no"
+            className="input input-bordered"
+            required
+          />
         </div>
 
         <div className="grid lg:grid-cols-3 gap-5">
@@ -40,7 +55,12 @@ const Register = () => {
             <label className="label">
               <span className="label-text">Salary</span>
             </label>
-            <input type="number" className="input input-bordered" required />
+            <input
+              type="number"
+              placeholder="Type salary amount"
+              className="input input-bordered"
+              required
+            />
           </div>
           <div className="form-control">
             <label className="label">
@@ -59,7 +79,12 @@ const Register = () => {
             <label className="label">
               <span className="label-text">Password</span>
             </label>
-            <input type="password" className="input input-bordered" required />
+            <input
+              type="password"
+              placeholder="Type password"
+              className="input input-bordered"
+              required
+            />
           </div>
         </div>
         <div className="form-control">
@@ -78,9 +103,9 @@ const Register = () => {
         <div>
           <p>
             <small>
-              Don’t have an account yet ?{" "}
+              Already have an account?{" "}
               <Link className="underline text-red" to="/login">
-                Join Now
+                Log In
               </Link>{" "}
             </small>
           </p>

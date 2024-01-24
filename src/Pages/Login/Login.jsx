@@ -6,7 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 import { useState } from "react";
 
 const Login = () => {
-  const { signIn, signInWithGoogle } = useAuth();
+  const { signIn } = useAuth();
   const navigate = useNavigate();
   const [loginError, setloginError] = useState("");
   const handleLogin = (e) => {
@@ -33,13 +33,6 @@ const Login = () => {
       .catch((error) => {
         setloginError("This user invalid");
       });
-  };
-  const handeGoogleLogin = () => {
-    signInWithGoogle()
-      .then((result) => {
-        navigate("/");
-      })
-      .then((error) => {});
   };
   return (
     <div className="px-2">
