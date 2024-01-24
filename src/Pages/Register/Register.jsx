@@ -1,10 +1,33 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { createUser, updateUserProfile } = useAuth();
+  const navigate = useNavigate();
+  const onSubmit = (data) => {
+    createUser(data.email, data.password)
+      .then((result) => {
+        updateUserProfile(data.name, data.photoURL).then(() => {
+          console.log("user profile info update");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Work Today",
+            text: "Account Created Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div className="max-w-screen-xl mx-auto py-20">
       <div className="flex items-center justify-center">
