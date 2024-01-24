@@ -25,6 +25,18 @@ const Register = () => {
         "content-Type": "multipart/form-data",
       },
     });
+    if (res.data.success) {
+      // now sent the menu item data to the  server with the image url
+      const loginInfo = {
+        name: data.name,
+        email: data.email,
+        account: parseFloat(data.bank_account),
+        salary: parseFloat(data.salary),
+        designation: data.designation,
+        image: res.data.data.display_url,
+      };
+      const user = await axiosSecure.post("/user", loginInfo);
+    }
     createUser(data.email, data.password)
       .then((result) => {
         Swal.fire({
