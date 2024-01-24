@@ -1,7 +1,10 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
   return (
     <div className="max-w-screen-xl mx-auto py-20">
       <div className="flex items-center justify-center">
@@ -13,7 +16,7 @@ const Register = () => {
           </p>
         </Link>
       </div>
-      <form className="card-body">
+      <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
         <div className="grid lg:grid-cols-2 gap-5">
           <div className="form-control">
             <label className="label">
@@ -24,6 +27,7 @@ const Register = () => {
               placeholder="Type name"
               className="input input-bordered"
               required
+              {...register("name")}
             />
           </div>
           <div className="form-control">
@@ -35,6 +39,7 @@ const Register = () => {
               placeholder="Type email"
               className="input input-bordered"
               required
+              {...register("email")}
             />
           </div>
         </div>
@@ -47,6 +52,7 @@ const Register = () => {
             placeholder="Type bank account no"
             className="input input-bordered"
             required
+            {...register("bank_account")}
           />
         </div>
 
@@ -60,20 +66,28 @@ const Register = () => {
               placeholder="Type salary amount"
               className="input input-bordered"
               required
+              {...register("salary")}
             />
           </div>
           <div className="form-control">
-            <label className="label">
-              <span className="label-text">Designation</span>
+            <label className="form-control w-full ">
+              <label className="label">
+                <span className="label-text">Designation</span>
+              </label>
+              <select
+                {...register("designation", { required: true })}
+                defaultValue="defaul"
+                className="select select-bordered"
+                required
+              >
+                <option disabled value="defaul">
+                  Pick one
+                </option>
+                <option value="employee">Employee</option>
+                <option value="hr">HR</option>
+                <option value="admin">Admin</option>
+              </select>
             </label>
-            <select className="select select-bordered">
-              <option disabled selected>
-                Pick one
-              </option>
-              <option value="employee">Employee</option>
-              <option value="hr">HR</option>
-              <option value="admin">Admin</option>
-            </select>
           </div>
           <div className="form-control">
             <label className="label">
@@ -84,6 +98,7 @@ const Register = () => {
               placeholder="Type password"
               className="input input-bordered"
               required
+              {...register("password")}
             />
           </div>
         </div>
@@ -91,7 +106,11 @@ const Register = () => {
           <label className="label">
             <span className="label-text">Photo</span>
           </label>
-          <input type="file" className="file-input file-input-bordered" />
+          <input
+            type="file"
+            {...register("photo")}
+            className="file-input file-input-bordered"
+          />
         </div>
         <div className="form-control mt-6">
           <input
