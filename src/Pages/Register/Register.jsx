@@ -4,8 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { IoClose } from "react-icons/io5";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Register = () => {
+  const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+  const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+  const axiosSecure = useAxiosSecure();
   const {
     register,
     handleSubmit,
@@ -14,8 +18,13 @@ const Register = () => {
   const { createUser } = useAuth();
   const navigate = useNavigate();
   const [registerError, setRegisterError] = useState("");
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const imageFile = { image: data.photo[0] };
+    const res = await axiosSecure.post(image_hosting_api, imageFile, {
+      headers: {
+        "content-Type": "multipart/form-data",
+      },
+    });
     createUser(data.email, data.password)
       .then((result) => {
         Swal.fire({
