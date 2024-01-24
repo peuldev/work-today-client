@@ -5,7 +5,11 @@ import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
   const onSubmit = (data) => {
@@ -49,9 +53,9 @@ const Register = () => {
               type="name"
               placeholder="Type name"
               className="input input-bordered"
-              required
-              {...register("name")}
+              {...register("name", { required: true })}
             />
+            {errors.name && <span className="text-red">name is required</span>}
           </div>
           <div className="form-control">
             <label className="label">
@@ -61,9 +65,11 @@ const Register = () => {
               type="email"
               placeholder="Type email"
               className="input input-bordered"
-              required
-              {...register("email")}
+              {...register("email", { required: true })}
             />
+            {errors.email && (
+              <span className="text-red">email is required</span>
+            )}
           </div>
         </div>
         <div className="form-control">
@@ -74,9 +80,11 @@ const Register = () => {
             type="number"
             placeholder="Type bank account no"
             className="input input-bordered"
-            required
-            {...register("bank_account")}
+            {...register("bank_account", { required: true })}
           />
+          {errors.bank_account && (
+            <span className="text-red">bank account is required</span>
+          )}
         </div>
 
         <div className="grid lg:grid-cols-3 gap-5">
@@ -88,9 +96,11 @@ const Register = () => {
               type="number"
               placeholder="Type salary amount"
               className="input input-bordered"
-              required
-              {...register("salary")}
+              {...register("salary", { required: true })}
             />
+            {errors.salary && (
+              <span className="text-red">salary amount is required</span>
+            )}
           </div>
           <div className="form-control">
             <label className="form-control w-full ">
@@ -101,7 +111,6 @@ const Register = () => {
                 {...register("designation", { required: true })}
                 defaultValue="defaul"
                 className="select select-bordered"
-                required
               >
                 <option disabled value="defaul">
                   Pick one
@@ -120,9 +129,11 @@ const Register = () => {
               type="password"
               placeholder="Type password"
               className="input input-bordered"
-              required
-              {...register("password")}
+              {...register("password", { required: true })}
             />
+            {errors.password && (
+              <span className="text-red">password is required</span>
+            )}
           </div>
         </div>
         <div className="form-control">
@@ -131,9 +142,12 @@ const Register = () => {
           </label>
           <input
             type="file"
-            {...register("photo")}
+            {...register("photoURL", { required: true })}
             className="file-input file-input-bordered"
           />
+          {errors.photoURL && (
+            <span className="text-red">photo is required</span>
+          )}
         </div>
         <div className="form-control mt-6">
           <input
