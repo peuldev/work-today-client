@@ -10,14 +10,14 @@ const Register = () => {
   const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
   const axiosSecure = useAxiosSecure();
+  const { createUser, updateUserProfile } = useAuth();
+  const navigate = useNavigate();
+  const [registerError, setRegisterError] = useState("");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { createUser } = useAuth();
-  const navigate = useNavigate();
-  const [registerError, setRegisterError] = useState("");
   const onSubmit = async (data) => {
     const imageFile = { image: data.photo[0] };
     const res = await axiosSecure.post(image_hosting_api, imageFile, {
@@ -39,13 +39,16 @@ const Register = () => {
     }
     createUser(data.email, data.password)
       .then((result) => {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Work Today",
-          text: "Account Created Successfully",
-          showConfirmButton: false,
-          timer: 1500,
+        updateUserProfile(data.name, data.photoURL).then(() => {
+          console.log("user profile info update");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Work Today",
+            text: "Account Created Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         });
         navigate("/");
       })
