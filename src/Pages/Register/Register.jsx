@@ -47,7 +47,9 @@ const Register = () => {
         <div className="grid lg:grid-cols-2 gap-5">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text">
+                Name <span className="text-red">*</span>
+              </span>
             </label>
             <input
               type="name"
@@ -59,7 +61,9 @@ const Register = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text">
+                Email <span className="text-red">*</span>
+              </span>
             </label>
             <input
               type="email"
@@ -74,7 +78,9 @@ const Register = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text ">Bank Account</span>
+            <span className="label-text ">
+              Bank Account <span className="text-red">*</span>
+            </span>
           </label>
           <input
             type="number"
@@ -105,7 +111,9 @@ const Register = () => {
           <div className="form-control">
             <label className="form-control w-full ">
               <label className="label">
-                <span className="label-text">Designation</span>
+                <span className="label-text">
+                  Designation <span className="text-red">*</span>
+                </span>
               </label>
               <select
                 {...register("designation", { required: true })}
@@ -123,7 +131,9 @@ const Register = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text">
+                Password <span className="text-red">*</span>
+              </span>
             </label>
             <input
               type="password"
@@ -138,7 +148,9 @@ const Register = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Photo</span>
+            <span className="label-text">
+              Photo <span className="text-red">*</span>
+            </span>
           </label>
           <input
             type="file"
