@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { IoClose } from "react-icons/io5";
 
 const Register = () => {
   const {
@@ -10,9 +11,11 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { createUser, updateUserProfile } = useAuth();
+  const { createUser } = useAuth();
   const navigate = useNavigate();
+  const [registerError, setRegisterError] = useState("");
   const onSubmit = (data) => {
+    console.log(data);
     createUser(data.email, data.password)
       .then((result) => {
         Swal.fire({
@@ -26,7 +29,7 @@ const Register = () => {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error.message);
+        setRegisterError(error.message);
       });
   };
   return (
@@ -39,6 +42,14 @@ const Register = () => {
             <span className="text-red">T</span>oday
           </p>
         </Link>
+      </div>
+      <div className="pt-4 ms-8">
+        {registerError && (
+          <p className="text-red flex items-center">
+            <IoClose className="bg-red text-white rounded-full mr-2" />
+            {registerError}
+          </p>
+        )}
       </div>
       <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
         <div className="grid lg:grid-cols-2 gap-5">
@@ -154,9 +165,7 @@ const Register = () => {
             {...register("photo", { required: true })}
             className="file-input file-input-bordered"
           />
-          {errors.photoURL && (
-            <span className="text-red">photo is required</span>
-          )}
+          {errors.photo && <span className="text-red">photo is required</span>}
         </div>
         <div className="form-control mt-6">
           <input
