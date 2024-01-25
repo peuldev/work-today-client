@@ -1,6 +1,6 @@
 import React from "react";
 import useAllUser from "../../../Hooks/useAllUser";
-import ShowList from "./ShowList";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 const AllEmployeeList = () => {
   const [registerUsers] = useAllUser();
@@ -19,6 +19,7 @@ const AllEmployeeList = () => {
               <th>Designation</th>
               <th>HR</th>
               <th>Fire</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody className="bg-white">
@@ -29,6 +30,9 @@ const AllEmployeeList = () => {
                 <td>{registerUser.designation}</td>
                 <td>Make HR</td>
                 <td>Fire</td>
+                <td>
+                  <RiDeleteBinLine className="text-3xl text-white rounded bg-red p-1 hover:bg-grey cursor-pointer" />
+                </td>
               </tr>
             ))}
           </tbody>
