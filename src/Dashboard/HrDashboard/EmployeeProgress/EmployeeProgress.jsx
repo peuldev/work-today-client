@@ -3,7 +3,7 @@ import React from "react";
 const EmployeeProgress = () => {
   return (
     <div>
-      <h1>EmployeeProgress</h1>
+      <h1>Employee Progress Work Seet</h1>
     </div>
   );
 };

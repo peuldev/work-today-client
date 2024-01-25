@@ -27,6 +27,11 @@ const Navbar = () => {
           <a>Blog</a>
         </Link>
       </li>
+      <li>
+        <Link to="/hrdashboard/hrhome">
+          <a>HrDashboard</a>
+        </Link>
+      </li>
       {user ? (
         <></>
       ) : (

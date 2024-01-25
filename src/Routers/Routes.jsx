@@ -12,6 +12,11 @@ import Dashboard from "../Layout/Dashboard";
 import EmployeeHome from "../Dashboard/EmployeeDashboard/EmployeeHome/EmployeeHome";
 import PaymentHistory from "../Dashboard/EmployeeDashboard/PaymentHistory/PaymentHistory";
 import WorkSheet from "../Dashboard/EmployeeDashboard/WorkSheet/WorkSheet";
+import HrHome from "../Dashboard/HrDashboard/HrHome/HrHome";
+import HRdashboard from "../Layout/HRdashboard";
+import EmployeeList from "../Dashboard/HrDashboard/EmployeeList/EmployeeList";
+import EmployeeDetails from "../Dashboard/HrDashboard/EmployeeDetails/EmployeeDetails";
+import EmployeeProgress from "../Dashboard/HrDashboard/EmployeeProgress/EmployeeProgress";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +70,29 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/worksheet",
         element: <WorkSheet></WorkSheet>,
+      },
+    ],
+  },
+  {
+    path: "hrdashboard",
+    element: <HRdashboard></HRdashboard>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "hrhome",
+        element: <HrHome></HrHome>,
+      },
+      {
+        path: "employeelist",
+        element: <EmployeeList></EmployeeList>,
+      },
+      {
+        path: "/hrdashboard/details",
+        element: <EmployeeDetails></EmployeeDetails>,
+      },
+      {
+        path: "/hrdashboard/progress",
+        element: <EmployeeProgress></EmployeeProgress>,
       },
     ],
   },
