@@ -1,9 +1,34 @@
 import React from "react";
 import useAllUser from "../../../Hooks/useAllUser";
 import { RiDeleteBinLine } from "react-icons/ri";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const AllEmployeeList = () => {
   const [registerUsers] = useAllUser();
+  const axiosSecure = useAxiosSecure();
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+        axiosSecure.delete(`/user/${id}`).then((res) => {
+          console.log(res);
+        });
+      }
+    });
+  };
   return (
     <div>
       <h1 className="text-4xl font-semibold font-Jost py-5 text-center">
@@ -31,7 +56,10 @@ const AllEmployeeList = () => {
                 <td>Make HR</td>
                 <td>Fire</td>
                 <td>
-                  <RiDeleteBinLine className="text-3xl text-white rounded bg-red p-1 hover:bg-grey cursor-pointer" />
+                  <RiDeleteBinLine
+                    onClick={() => handleDelete(registerUser._id)}
+                    className="text-3xl text-white rounded bg-red p-1 hover:bg-grey cursor-pointer"
+                  />
                 </td>
               </tr>
             ))}
