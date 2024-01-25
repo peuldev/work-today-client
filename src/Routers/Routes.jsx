@@ -17,6 +17,9 @@ import HRdashboard from "../Layout/HRdashboard";
 import EmployeeList from "../Dashboard/HrDashboard/EmployeeList/EmployeeList";
 import EmployeeDetails from "../Dashboard/HrDashboard/EmployeeDetails/EmployeeDetails";
 import EmployeeProgress from "../Dashboard/HrDashboard/EmployeeProgress/EmployeeProgress";
+import Admin from "../Layout/Admin";
+import AddminHome from "../Dashboard/AdminDashboard/AddminHome/AddminHome";
+import AllEmployeeList from "../Dashboard/AdminDashboard/AllEmployeeList/AllEmployeeList";
 
 const router = createBrowserRouter([
   {
@@ -93,6 +96,21 @@ const router = createBrowserRouter([
       {
         path: "/hrdashboard/progress",
         element: <EmployeeProgress></EmployeeProgress>,
+      },
+    ],
+  },
+  {
+    path: "admindashboard",
+    element: <Admin></Admin>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "/admindashboard/adminhome",
+        element: <AddminHome></AddminHome>,
+      },
+      {
+        path: "/admindashboard/allemployeelist",
+        element: <AllEmployeeList></AllEmployeeList>,
       },
     ],
   },
