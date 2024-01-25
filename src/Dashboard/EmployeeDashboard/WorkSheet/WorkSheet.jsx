@@ -1,7 +1,9 @@
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import OurTitle from "../../components/OurTitle";
+
+import OurTitle from "../../../components/OurTitle";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+
 const WorkSheet = () => {
   const { register, handleSubmit, reset } = useForm();
   const axiosSecure = useAxiosSecure();

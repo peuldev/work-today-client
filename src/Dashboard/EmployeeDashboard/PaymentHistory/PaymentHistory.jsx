@@ -1,4 +1,5 @@
-import OurTitle from "../../components/OurTitle";
+import OurTitle from "../../../components/OurTitle";
+
 
 const PaymentHistory = () => {
   return (

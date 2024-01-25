@@ -9,9 +9,9 @@ import Login from "../Pages/Login/Login";
 import ErrorPage from "../Error/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
-import EmployeeHome from "../EmployeeDashboard/EmployeeHome/EmployeeHome";
-import PaymentHistory from "../EmployeeDashboard/PaymentHistory/PaymentHistory";
-import WorkSheet from "../EmployeeDashboard/WorkSheet/WorkSheet";
+import EmployeeHome from "../Dashboard/EmployeeDashboard/EmployeeHome/EmployeeHome";
+import PaymentHistory from "../Dashboard/EmployeeDashboard/PaymentHistory/PaymentHistory";
+import WorkSheet from "../Dashboard/EmployeeDashboard/WorkSheet/WorkSheet";
 
 const router = createBrowserRouter([
   {
