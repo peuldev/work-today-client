@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const AllEmployeeList = () => {
-  const [registerUsers] = useAllUser();
+  const [registerUsers, setRegisterUser] = useAllUser();
   const axiosSecure = useAxiosSecure();
   const handleDelete = (id) => {
     Swal.fire({
@@ -25,6 +25,10 @@ const AllEmployeeList = () => {
         });
         axiosSecure.delete(`/user/${id}`).then((res) => {
           console.log(res);
+          if (res.data.deletedCount) {
+            const remaining = registerUsers.filter((item) => item._id !== id);
+            setRegisterUser(remaining);
+          }
         });
       }
     });

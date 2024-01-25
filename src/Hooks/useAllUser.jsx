@@ -9,7 +9,7 @@ const useAllUser = () => {
         setRegisterUser(data);
       });
   }, []);
-  return [registerUser];
+  return [registerUser, setRegisterUser];
 };
 
 export default useAllUser;
