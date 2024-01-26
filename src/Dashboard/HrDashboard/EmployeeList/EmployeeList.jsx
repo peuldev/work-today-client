@@ -13,7 +13,7 @@ const EmployeeList = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ verified: "ture" }),
+      body: JSON.stringify({ verified: "confirm" }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -30,7 +30,7 @@ const EmployeeList = () => {
           });
           const remaining = employees.filter((item) => item._id !== id);
           const update = employees.find((item) => item._id === id);
-          update.verified = "ture";
+          update.status = "confirm";
           const newRegister = [update, ...remaining];
           setRegisterUser(newRegister);
         }
@@ -64,7 +64,7 @@ const EmployeeList = () => {
                   <td>{employee.name}</td>
                   <td>{employee.email}</td>
                   <td>
-                    {employee.verified === "ture" ? (
+                    {employee.status === "confirm" ? (
                       <span>✅</span>
                     ) : (
                       <button
