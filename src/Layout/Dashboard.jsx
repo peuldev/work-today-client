@@ -10,7 +10,7 @@ import useAuth from "../Hooks/useAuth";
 const Dashboard = () => {
   const { user } = useAuth();
   // TODO: get admin value is database
-  const isAdmin = true;
+  const isAdmin = false;
   return (
     <div>
       <div className="bg-grey flex items-center">
@@ -53,18 +53,18 @@ const Dashboard = () => {
             ) : (
               <>
                 <li>
-                  <NavLink to="/dashboard/employeehome">
+                  <NavLink to="employeehome">
                     <FaHome /> Home
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/worksheet">
+                  <NavLink to="worksheet">
                     <BiSolidSpreadsheet />
                     Work Sheet
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/paymenthistory">
+                  <NavLink to="paymenthistory">
                     <MdOutlineWallet /> Payment History
                   </NavLink>
                 </li>

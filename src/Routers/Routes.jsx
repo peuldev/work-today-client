@@ -11,6 +11,9 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import AddminHome from "../Dashboard/AdminDashboard/AddminHome/AddminHome";
 import AllEmployeeList from "../Dashboard/AdminDashboard/AllEmployeeList/AllEmployeeList";
+import EmployeeHome from "../Dashboard/EmployeeDashboard/EmployeeHome/EmployeeHome";
+import WorkSheet from "../Dashboard/EmployeeDashboard/WorkSheet/WorkSheet";
+import PaymentHistory from "../Dashboard/EmployeeDashboard/PaymentHistory/PaymentHistory";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,6 +55,20 @@ const router = createBrowserRouter([
     element: <Dashboard></Dashboard>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
+      // user
+      {
+        path: "employeehome",
+        element: <EmployeeHome></EmployeeHome>,
+      },
+      {
+        path: "worksheet",
+        element: <WorkSheet></WorkSheet>,
+      },
+      {
+        path: "paymenthistory",
+        element: <PaymentHistory></PaymentHistory>,
+      },
+      // admin
       {
         path: "admin",
         element: <AddminHome></AddminHome>,

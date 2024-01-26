@@ -1,6 +1,5 @@
 import OurTitle from "../../../components/OurTitle";
 
-
 const PaymentHistory = () => {
   return (
     <div>

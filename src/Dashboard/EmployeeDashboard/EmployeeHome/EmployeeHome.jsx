@@ -1,7 +1,6 @@
 import React from "react";
 import useAuth from "../../../Hooks/useAuth";
 
-
 const EmployeeHome = () => {
   const { user } = useAuth();
   return (
