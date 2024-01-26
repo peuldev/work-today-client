@@ -9,6 +9,8 @@ import useAuth from "../Hooks/useAuth";
 
 const Dashboard = () => {
   const { user } = useAuth();
+  // TODO: get admin value is database
+  const isAdmin = true;
   return (
     <div>
       <div className="bg-grey flex items-center">
@@ -35,22 +37,41 @@ const Dashboard = () => {
         {/* dashboard side bar */}
         <div className="w-64 min-h-screen bg-[#34444c] text-white">
           <ul className="menu">
-            <li>
-              <NavLink to="/dashboard/employeehome">
-                <FaHome /> Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/worksheet">
-                <BiSolidSpreadsheet />
-                Work Sheet
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/paymenthistory">
-                <MdOutlineWallet /> Payment History
-              </NavLink>
-            </li>
+            {isAdmin ? (
+              <>
+                <li>
+                  <NavLink to="">
+                    <FaHome /> Admin Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="">
+                    <FaHome /> All Employee List
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink to="/dashboard/employeehome">
+                    <FaHome /> Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/worksheet">
+                    <BiSolidSpreadsheet />
+                    Work Sheet
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/paymenthistory">
+                    <MdOutlineWallet /> Payment History
+                  </NavLink>
+                </li>
+              </>
+            )}
+
+            {/*admin dashboard side bar */}
             <div className="divider divider-neutral"></div>
             <li>
               <NavLink to="/services">
