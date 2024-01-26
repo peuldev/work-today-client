@@ -46,6 +46,15 @@ const AllEmployeeList = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Fired Successfully",
+            text: "You won't be able to revert this!",
+            icon: "success",
+            showCancelButton: false,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ok",
+          });
           const remaining = registerUsers.filter((item) => item._id !== id);
           const update = registerUsers.find((item) => item._id === id);
           update.status = "confirm";
