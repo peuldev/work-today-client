@@ -82,7 +82,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: "hrhome",
+        path: "/hrdashboard/hrhome",
         element: <HrHome></HrHome>,
       },
       {

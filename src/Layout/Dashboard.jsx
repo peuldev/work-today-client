@@ -24,7 +24,7 @@ const Dashboard = () => {
           {user && <span>{user.displayName}</span>}
           {user && (
             <img
-              className="w-12 h-12 mx-5 rounded-full"
+              className="w-10 h-10 mx-5 rounded-full"
               src={user.photoURL}
               alt=""
             />
