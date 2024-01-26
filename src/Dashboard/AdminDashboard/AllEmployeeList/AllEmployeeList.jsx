@@ -33,6 +33,27 @@ const AllEmployeeList = () => {
       }
     });
   };
+
+  const handleFire = (id) => {
+    fetch(`http://localhost:5000/user/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: "confirm" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          const remaining = registerUsers.filter((item) => item._id !== id);
+          const update = registerUsers.find((item) => item._id === id);
+          update.status = "confirm";
+          const newRegister = [update, ...remaining];
+          setRegisterUser(newRegister);
+        }
+      });
+  };
   return (
     <div>
       <h1 className="text-4xl font-semibold font-Jost py-5 text-center">
@@ -58,7 +79,18 @@ const AllEmployeeList = () => {
                 <td>{registerUser.name}</td>
                 <td>{registerUser.designation}</td>
                 <td>Make HR</td>
-                <td>Fire</td>
+                <td>
+                  {registerUser.status === "confirm" ? (
+                    <span>fired</span>
+                  ) : (
+                    <button
+                      className="uppercase"
+                      onClick={() => handleFire(registerUser._id)}
+                    >
+                      fire
+                    </button>
+                  )}
+                </td>
                 <td>
                   <RiDeleteBinLine
                     onClick={() => handleDelete(registerUser._id)}
