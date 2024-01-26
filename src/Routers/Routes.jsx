@@ -8,6 +8,9 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import ErrorPage from "../Error/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
+import AddminHome from "../Dashboard/AdminDashboard/AddminHome/AddminHome";
+import AllEmployeeList from "../Dashboard/AdminDashboard/AllEmployeeList/AllEmployeeList";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +44,21 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "admin",
+        element: <AddminHome></AddminHome>,
+      },
+      {
+        path: "allemployeelist",
+        element: <AllEmployeeList></AllEmployeeList>,
       },
     ],
   },
