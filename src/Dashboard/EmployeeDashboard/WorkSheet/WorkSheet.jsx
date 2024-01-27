@@ -2,13 +2,13 @@ import Swal from "sweetalert2";
 
 import OurTitle from "../../../components/OurTitle";
 import { useForm } from "react-hook-form";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const WorkSheet = () => {
   const { register, handleSubmit, reset } = useForm();
-  const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   const onSubmit = (data) => {
-    axiosSecure
+    axiosPublic
       .post("/work-sheet", data)
       .then((res) => {
         if (res.data.insertedId) {

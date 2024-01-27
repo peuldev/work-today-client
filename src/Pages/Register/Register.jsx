@@ -4,12 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { IoClose } from "react-icons/io5";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
   const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-  const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
   const [registerError, setRegisterError] = useState("");
@@ -20,7 +20,7 @@ const Register = () => {
   } = useForm();
   const onSubmit = async (data) => {
     const imageFile = { image: data.photo[0] };
-    const res = await axiosSecure.post(image_hosting_api, imageFile, {
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
         "content-Type": "multipart/form-data",
       },
@@ -35,7 +35,7 @@ const Register = () => {
         designation: data.designation,
         image: res.data.data.display_url,
       };
-      const user = await axiosSecure.post("/user", loginInfo);
+      const user = await axiosPublic.post("/user", loginInfo);
       if (user.data.insertedId) {
         createUser(data.email, data.password)
           .then((result) => {
