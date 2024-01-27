@@ -1,5 +1,3 @@
-import React from "react";
-import useAllUser from "../../../Hooks/useAllUser";
 import { RiDeleteBinLine } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
@@ -7,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { FaUser } from "react-icons/fa";
 
 const AllEmployeeList = () => {
-  const [registerUsers, setRegisterUser] = useAllUser();
   const axiosSecure = useAxiosSecure();
   const { data: users = [], refetch } = useQuery({
     queryKey: ["user"],
