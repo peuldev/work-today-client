@@ -10,7 +10,7 @@ import useAuth from "../Hooks/useAuth";
 const Dashboard = () => {
   const { user } = useAuth();
   // TODO: get admin value is database
-  const isAdmin = false;
+  const isAdmin = true;
   return (
     <div>
       <div className="bg-grey flex items-center">

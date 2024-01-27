@@ -3,10 +3,18 @@ import useAllUser from "../../../Hooks/useAllUser";
 import { RiDeleteBinLine } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const AllEmployeeList = () => {
   const [registerUsers, setRegisterUser] = useAllUser();
   const axiosSecure = useAxiosSecure();
+  const { data: users = [], refetch } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/user");
+      return res.data;
+    },
+  });
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -18,16 +26,15 @@ const AllEmployeeList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success",
-        });
         axiosSecure.delete(`/user/${id}`).then((res) => {
           console.log(res);
-          if (res.data.deletedCount) {
-            const remaining = registerUsers.filter((item) => item._id !== id);
-            setRegisterUser(remaining);
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
           }
         });
       }
@@ -66,7 +73,7 @@ const AllEmployeeList = () => {
   return (
     <div>
       <h1 className="text-4xl font-semibold font-Jost py-5 text-center">
-        All Employee List {registerUsers.length}
+        All Employee List {users.length}
       </h1>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
@@ -82,19 +89,19 @@ const AllEmployeeList = () => {
             </tr>
           </thead>
           <tbody className="bg-white">
-            {registerUsers.map((registerUser, index) => (
-              <tr key={registerUser._id} className="uppercase">
+            {users.map((user, index) => (
+              <tr key={user._id} className="uppercase">
                 <th>{index + 1}</th>
-                <td>{registerUser.name}</td>
-                <td>{registerUser.designation}</td>
+                <td>{user.name}</td>
+                <td>{user.designation}</td>
                 <td>Make HR</td>
                 <td>
-                  {registerUser.status === "confirm" ? (
+                  {user.status === "confirm" ? (
                     <span>fired</span>
                   ) : (
                     <button
                       className="uppercase"
-                      onClick={() => handleFire(registerUser._id)}
+                      onClick={() => handleFire(user._id)}
                     >
                       fire
                     </button>
@@ -102,7 +109,7 @@ const AllEmployeeList = () => {
                 </td>
                 <td>
                   <RiDeleteBinLine
-                    onClick={() => handleDelete(registerUser._id)}
+                    onClick={() => handleDelete(user._id)}
                     className="text-3xl text-white rounded bg-red p-1 hover:bg-grey cursor-pointer"
                   />
                 </td>
