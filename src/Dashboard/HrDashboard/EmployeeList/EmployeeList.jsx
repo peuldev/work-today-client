@@ -8,7 +8,7 @@ const EmployeeList = () => {
     (item) => item.designation === "employee"
   );
   const handleVerified = (id) => {
-    fetch(`http://localhost:5000/user/${id}`, {
+    fetch(`https://worktoday.vercel.app/user/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
