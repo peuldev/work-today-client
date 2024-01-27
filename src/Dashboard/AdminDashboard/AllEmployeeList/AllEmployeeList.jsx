@@ -42,34 +42,20 @@ const AllEmployeeList = () => {
     });
   };
 
-  const handleFire = (id) => {
-    fetch(`http://localhost:5000/user/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ status: "confirm" }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          Swal.fire({
-            title: "Fired Successfully",
-            text: "You won't be able to revert this!",
-            icon: "success",
-            showCancelButton: false,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Ok",
-          });
-          const remaining = registerUsers.filter((item) => item._id !== id);
-          const update = registerUsers.find((item) => item._id === id);
-          update.status = "confirm";
-          const newRegister = [update, ...remaining];
-          setRegisterUser(newRegister);
-        }
-      });
+  const handleFire = (user) => {
+    axiosSecure.patch(`/user/${user._id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `${user.name} is new admin add`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   };
 
   const handleMakeAdmin = (user) => {
@@ -122,12 +108,12 @@ const AllEmployeeList = () => {
                   )}
                 </td>
                 <td>
-                  {user.status === "confirm" ? (
-                    <span>fired</span>
+                  {user.status === "fired" ? (
+                    "Fired"
                   ) : (
                     <button
                       className="uppercase"
-                      onClick={() => handleFire(user._id)}
+                      onClick={() => handleFire(user)}
                     >
                       fire
                     </button>
