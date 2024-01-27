@@ -25,7 +25,6 @@ const AllEmployeeList = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/user/${id}`).then((res) => {
-          console.log(res);
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire({
@@ -41,7 +40,6 @@ const AllEmployeeList = () => {
 
   const handleFire = (user) => {
     axiosSecure.patch(`/user/${user._id}`).then((res) => {
-      console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
         Swal.fire({
@@ -57,7 +55,6 @@ const AllEmployeeList = () => {
 
   const handleMakeAdmin = (user) => {
     axiosSecure.patch(`/user/admin/${user._id}`).then((res) => {
-      console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
         Swal.fire({

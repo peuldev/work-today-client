@@ -7,7 +7,6 @@ const EmployeeProgress = () => {
       .then((res) => res.json())
       .then((data) => setEmployeeProgress(data));
   }, []);
-  console.log(employeeProgress);
   return (
     <div>
       <h1 className="text-4xl font-semibold font-Jost py-5 text-center">
