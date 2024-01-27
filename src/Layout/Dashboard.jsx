@@ -6,11 +6,12 @@ import { MdOutlineMedicalServices } from "react-icons/md";
 import { PiNewspaperClipping } from "react-icons/pi";
 import { BiSolidContact } from "react-icons/bi";
 import useAuth from "../Hooks/useAuth";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
   const { user } = useAuth();
   // TODO: get admin value is database
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div>
       <div className="bg-grey flex items-center">
