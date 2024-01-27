@@ -71,6 +71,22 @@ const AllEmployeeList = () => {
         }
       });
   };
+
+  const handleMakeAdmin = (user) => {
+    axiosSecure.patch(`/user/admin/${user._id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `${user.name} is new admin add`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
   return (
     <div>
       <h1 className="text-4xl font-semibold font-Jost py-5 text-center">
@@ -96,10 +112,14 @@ const AllEmployeeList = () => {
                 <td>{user.name}</td>
                 <td>{user.designation}</td>
                 <td>
-                  <FaUser
-                    onClick={() => handleMakeAdmin(user._id)}
-                    className="text-red text-2xl hover:text-grey cursor-pointer"
-                  ></FaUser>
+                  {user.role === "admin" ? (
+                    "Admin"
+                  ) : (
+                    <FaUser
+                      onClick={() => handleMakeAdmin(user)}
+                      className="text-red text-2xl hover:text-grey cursor-pointer"
+                    ></FaUser>
+                  )}
                 </td>
                 <td>
                   {user.status === "confirm" ? (
