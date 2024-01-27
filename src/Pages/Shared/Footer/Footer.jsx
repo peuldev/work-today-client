@@ -5,14 +5,14 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import footerBg from "../../../assets/footer/footer-bg-shape.svg";
+import images from "../../../assets/slider/image.jpg";
 
 const Footer = () => {
   return (
     <div
-      className="px-2"
+      className="px-2 bg-black"
       style={{
-        backgroundImage: `url(${footerBg})`,
+        backgroundImage: `url(${images})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
