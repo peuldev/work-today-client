@@ -4,6 +4,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { FaUser } from "react-icons/fa";
 
 const AllEmployeeList = () => {
   const [registerUsers, setRegisterUser] = useAllUser();
@@ -83,7 +84,7 @@ const AllEmployeeList = () => {
               <th>#</th>
               <th>Name</th>
               <th>Designation</th>
-              <th>HR</th>
+              <th>Role</th>
               <th>Fire</th>
               <th>Action</th>
             </tr>
@@ -94,7 +95,12 @@ const AllEmployeeList = () => {
                 <th>{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.designation}</td>
-                <td>Make HR</td>
+                <td>
+                  <FaUser
+                    onClick={() => handleMakeAdmin(user._id)}
+                    className="text-red text-2xl hover:text-grey cursor-pointer"
+                  ></FaUser>
+                </td>
                 <td>
                   {user.status === "confirm" ? (
                     <span>fired</span>
