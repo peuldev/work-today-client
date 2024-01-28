@@ -14,6 +14,9 @@ import AllEmployeeList from "../Dashboard/AdminDashboard/AllEmployeeList/AllEmpl
 import EmployeeHome from "../Dashboard/EmployeeDashboard/EmployeeHome/EmployeeHome";
 import WorkSheet from "../Dashboard/EmployeeDashboard/WorkSheet/WorkSheet";
 import PaymentHistory from "../Dashboard/EmployeeDashboard/PaymentHistory/PaymentHistory";
+import HrHome from "../Dashboard/HrDashboard/HrHome/HrHome";
+import EmployeeList from "../Dashboard/HrDashboard/EmployeeList/EmployeeList";
+import EmployeeProgress from "../Dashboard/HrDashboard/EmployeeProgress/EmployeeProgress";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -76,6 +79,19 @@ const router = createBrowserRouter([
       {
         path: "allemployeelist",
         element: <AllEmployeeList></AllEmployeeList>,
+      },
+      // hr
+      {
+        path: "hrhome",
+        element: <HrHome></HrHome>,
+      },
+      {
+        path: "employeelist",
+        element: <EmployeeList></EmployeeList>,
+      },
+      {
+        path: "employeeprogress",
+        element: <EmployeeProgress></EmployeeProgress>,
       },
     ],
   },

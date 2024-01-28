@@ -7,11 +7,13 @@ import { PiNewspaperClipping } from "react-icons/pi";
 import { BiSolidContact } from "react-icons/bi";
 import useAuth from "../Hooks/useAuth";
 import useAdmin from "../Hooks/useAdmin";
+import useHr from "../Hooks/useHr";
 
 const Dashboard = () => {
   const { user } = useAuth();
   // TODO: get admin value is database
   const [isAdmin] = useAdmin();
+  const [isHr] = useHr();
   return (
     <div>
       <div className="bg-grey flex items-center">
@@ -38,7 +40,7 @@ const Dashboard = () => {
         {/* dashboard side bar */}
         <div className="w-64 min-h-screen bg-[#34444c] text-white">
           <ul className="menu">
-            {isAdmin ? (
+            {isAdmin && (
               <>
                 <li>
                   <NavLink to="admin">
@@ -51,26 +53,45 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
               </>
-            ) : (
+            )}
+            {isHr && (
               <>
                 <li>
-                  <NavLink to="employeehome">
-                    <FaHome /> Home
+                  <NavLink to="hrhome">
+                    <FaHome /> Hr Home
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="worksheet">
+                  <NavLink to="employeelist">
                     <BiSolidSpreadsheet />
-                    Work Sheet
+                    Employee List
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="paymenthistory">
-                    <MdOutlineWallet /> Payment History
+                  <NavLink to="employeeprogress">
+                    <MdOutlineWallet /> Employee Progress
                   </NavLink>
                 </li>
               </>
             )}
+            <>
+              <li>
+                <NavLink to="employeehome">
+                  <FaHome /> Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="worksheet">
+                  <BiSolidSpreadsheet />
+                  Work Sheet
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="paymenthistory">
+                  <MdOutlineWallet /> Payment History
+                </NavLink>
+              </li>
+            </>
 
             {/*admin dashboard side bar */}
             <div className="divider divider-neutral"></div>
