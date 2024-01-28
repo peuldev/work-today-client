@@ -69,7 +69,7 @@ const EmployeeList = () => {
                   <td>Ac {employee.account}</td>
                   <td>$ {employee.salary}</td>
                   <td className="hover:text-red cursor-pointer">
-                    <Link to={`${employee._id}`}>View Details</Link>
+                    <Link to={`details/${employee._id}`}>View Details</Link>
                   </td>
                   <td className="hover:text-red cursor-pointer">Pay</td>
                 </tr>
