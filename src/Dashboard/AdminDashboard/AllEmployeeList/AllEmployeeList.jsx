@@ -67,6 +67,20 @@ const AllEmployeeList = () => {
       }
     });
   };
+  const handleMakeHr = (user) => {
+    axiosSecure.patch(`/user/hr/${user._id}`).then((res) => {
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `${user.name} is new hr add`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
   return (
     <div>
       <h1 className="text-4xl font-semibold font-Jost py-5 text-center">
@@ -80,7 +94,8 @@ const AllEmployeeList = () => {
               <th>#</th>
               <th>Name</th>
               <th>Designation</th>
-              <th>Role</th>
+              <th>Admin Role</th>
+              <th>Hr Role</th>
               <th>Fire</th>
               <th>Action</th>
             </tr>
@@ -97,6 +112,16 @@ const AllEmployeeList = () => {
                   ) : (
                     <FaUser
                       onClick={() => handleMakeAdmin(user)}
+                      className="text-red text-2xl hover:text-grey cursor-pointer"
+                    ></FaUser>
+                  )}
+                </td>
+                <td>
+                  {user.role === "hr" ? (
+                    "Hr"
+                  ) : (
+                    <FaUser
+                      onClick={() => handleMakeHr(user)}
                       className="text-red text-2xl hover:text-grey cursor-pointer"
                     ></FaUser>
                   )}
