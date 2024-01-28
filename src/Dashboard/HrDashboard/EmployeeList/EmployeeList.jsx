@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const EmployeeList = () => {
   const axiosPublic = useAxiosPublic();
@@ -11,6 +12,20 @@ const EmployeeList = () => {
       return res.data;
     },
   });
+  const handleVerified = (user) => {
+    axiosPublic.patch(`/employee/${user._id}`).then((res) => {
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `${user.name} new employee verified`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
   return (
     <div>
       <h1 className="text-4xl font-semibold font-Jost py-5 text-center">
@@ -39,12 +54,12 @@ const EmployeeList = () => {
                   <td>{employee.name}</td>
                   <td>{employee.email}</td>
                   <td>
-                    {employee.status === "confirm" ? (
+                    {employee.verified === "yes" ? (
                       <span>✅</span>
                     ) : (
                       <button
                         className="uppercase"
-                        onClick={() => handleVerified(employee._id)}
+                        onClick={() => handleVerified(employee)}
                       >
                         ❌
                       </button>
