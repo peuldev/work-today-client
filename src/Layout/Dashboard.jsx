@@ -52,8 +52,10 @@ const Dashboard = () => {
                     <FaHome /> All Employee List
                   </NavLink>
                 </li>
+                <div className="divider divider-neutral">User Access</div>
               </>
             )}
+            {/* hr  */}
             {isHr && (
               <>
                 <li>
@@ -72,8 +74,10 @@ const Dashboard = () => {
                     <MdOutlineWallet /> Employee Progress
                   </NavLink>
                 </li>
+                <div className="divider divider-neutral">User Access</div>
               </>
             )}
+
             <>
               <li>
                 <NavLink to="employeehome">
@@ -92,7 +96,6 @@ const Dashboard = () => {
                 </NavLink>
               </li>
             </>
-
             {/*admin dashboard side bar */}
             <div className="divider divider-neutral"></div>
             <li>
