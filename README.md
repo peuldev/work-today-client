@@ -1,4 +1,4 @@
-# React + Vite
+# Work Today
 
 Admin email: worktoday@gmail.com
 
