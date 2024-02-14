@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const useAllUser = () => {
   const [registerUser, setRegisterUser] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://work-today-server.vercel.app/user")
       .then((res) => res.json())
       .then((data) => {
         setRegisterUser(data);

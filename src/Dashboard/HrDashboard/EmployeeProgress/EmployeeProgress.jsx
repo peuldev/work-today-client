@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const EmployeeProgress = () => {
   const [employeeProgress, setEmployeeProgress] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/work-sheet")
+    fetch("https://work-today-server.vercel.app/work-sheet")
       .then((res) => res.json())
       .then((data) => setEmployeeProgress(data));
   }, []);

@@ -94,7 +94,7 @@ const router = createBrowserRouter([
         path: "/dashboard/employeelist/details/:id",
         element: <EmployeeDetails></EmployeeDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/employee/${params.id}`),
+          fetch(`https://work-today-server.vercel.app/employee/${params.id}`),
       },
       {
         path: "employeeprogress",

@@ -5,7 +5,7 @@ import DisplyBlog from "./DisplyBlog";
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/blog")
+    fetch("https://work-today-server.vercel.app/blog")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);
