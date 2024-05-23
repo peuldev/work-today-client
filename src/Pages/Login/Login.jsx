@@ -1,9 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
-import loginBg from "../../assets/images/login.jpg";
+import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
-import { useState } from "react";
+import loginBg from "../../assets/images/login.jpg";
 
 const Login = () => {
   const { signIn } = useAuth();
@@ -67,6 +67,7 @@ const Login = () => {
                     placeholder="Type email"
                     required
                     name="email"
+                    defaultValue={"peul.islam71@gmail.com"}
                   />
                 </div>
                 <div className="form-control">
@@ -79,6 +80,7 @@ const Login = () => {
                     placeholder="Type password"
                     required
                     name="password"
+                    defaultValue={"work-today"}
                   />
                 </div>
                 <div className="form-control mt-6">
