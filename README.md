@@ -1,6 +1,6 @@
 # Work Today
 
-Admin email: worktoday@gmail.com
+Admin email: peul.islam71@gmail.com
 
 
-Admin password: KKKdffllfdffL9
+Admin password: work-today
